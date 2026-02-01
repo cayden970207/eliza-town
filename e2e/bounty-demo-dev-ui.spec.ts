@@ -1,5 +1,9 @@
 import { expect, test } from '@playwright/test';
 
+// Demo-only: this spec is intended for recording a deterministic clip, not for the main CI E2E gate.
+// To run it explicitly: `E2E_DEMO_VIDEO=1 npx playwright test e2e/bounty-demo-dev-ui.spec.ts`.
+test.skip(process.env.E2E_DEMO_VIDEO !== '1', 'demo-only (set E2E_DEMO_VIDEO=1 to run)');
+
 test('bounty demo (dev UI) - takeover + close panel', async ({ page }) => {
   await page.goto('/ai-town/');
 
